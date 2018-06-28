@@ -131,20 +131,13 @@ namespace NumberWords.Tests
       Word word = new Word();
       Assert.AreEqual("Zero", word.GetString(0));
     }
-    // [TestMethod]
-    // public void Return_GetString_Yeah_True()
-    // {
-    //   Word word = new Word();
-    //   word.SetNumber("1999999999999999999999999999");
-    //   Assert.AreEqual("", word.GetString());
-    // }
-    // [TestMethod]
-    // public void Return_GetString_Neg_1_True()
-    // {
-    //   Word word = new Word();
-    //   word.SetNumber("-999999999999999999999999999");
-    //   Assert.AreEqual("", word.GetString());
-    // }
+    [TestMethod]
+    public void Return_GetString_Neg_1_True()
+    {
+      Word word = new Word();
+      BigInteger num = (BigInteger.Pow(10,65)*9*-1);
+      Assert.AreEqual("Negative Nine Hundred Vigintillion", word.GetString(num));
+    }
     [TestMethod]
     public void Return_GetString_Very_High_True()
     {
