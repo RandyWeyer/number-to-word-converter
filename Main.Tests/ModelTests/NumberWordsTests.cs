@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using NumberWords.Models;
+using System.Numerics;
 
 namespace NumberWords.Tests
 {
@@ -22,52 +23,127 @@ namespace NumberWords.Tests
       Assert.AreEqual(test,word.Default());
     }
     [TestMethod]
-    public void Return_Convert_True()
+    public void Return_GetString_True()
     {
       Word word = new Word();
-      Assert.AreEqual("One",word.Convert(1));
+      Assert.AreEqual("One",word.GetString(1));
     }
     [TestMethod]
-    public void Return_Convert_19_True()
+    public void Return_GetString_19_True()
     {
       Word word = new Word();
-      Assert.AreEqual("Nineteen",word.Convert(19));
+      Assert.AreEqual("Nineteen",word.GetString(19));
     }
     [TestMethod]
-    public void Return_Convert_neg_1_True()
+    public void Return_GetString_neg_1_True()
     {
       Word word = new Word();
-      Assert.AreEqual("Existence is Futile",word.Convert(-1));
+      Assert.AreEqual("One Quadrillion",word.GetString(1000000000000000));
     }
     [TestMethod]
-    public void Return_Convert_101_True()
+    public void Return_GetString_101_True()
     {
       Word word = new Word();
-      Assert.AreEqual("One Hundred One",word.Convert(101));
+      Assert.AreEqual("One Hundred One",word.GetString(101));
     }
     [TestMethod]
-    public void Return_Convert_919_True()
+    public void Return_GetString_919_True()
     {
       Word word = new Word();
-      Assert.AreEqual("Nine Hundred Nineteen",word.Convert(919));
+      Assert.AreEqual("Nine Hundred Nineteen",word.GetString(919));
     }
     [TestMethod]
-    public void Return_Convert_920_True()
+    public void Return_GetString_920_True()
     {
       Word word = new Word();
-      Assert.AreEqual("Nine Hundred Twenty",word.Convert(920));
+      Assert.AreEqual("Nine Hundred Twenty",word.GetString(920));
     }
     [TestMethod]
-    public void Return_Convert_921_True()
+    public void Return_GetString_921_True()
     {
       Word word = new Word();
-      Assert.AreEqual("Nine Hundred Twenty One",word.Convert(921));
+      Assert.AreEqual("Nine Hundred Twenty One",word.GetString(921));
     }
     [TestMethod]
-    public void Return_Convert_2921_True()
+    public void Return_GetString_2921_True()
     {
       Word word = new Word();
-      Assert.AreEqual("Nine Hundred Twenty One",word.Convert(2921));
+      Assert.AreEqual("Two Thousand Nine Hundred Twenty One",word.GetString(2921));
+    }
+    [TestMethod]
+    public void Return_GetString_8453_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("Eight Thousand Four Hundred Fifty Three", word.GetString(8453));
+
+    }
+    [TestMethod]
+    public void Return_GetString_315986_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("Three Hundred Fifteen Thousand Nine Hundred Eighty Six", word.GetString(315986));
+    }
+    [TestMethod]
+    public void Return_GetString_1315986_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("One Million Three Hundred Fifteen Thousand Nine Hundred Eighty Six", word.GetString(1315986));
+    }
+    [TestMethod]
+    public void Return_GetString_1000000_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("One Million", word.GetString(1000000));
+    }
+    [TestMethod]
+    public void Return_GetString_1001000_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("One Million One Thousand", word.GetString(1001000));
+    }
+    [TestMethod]
+    public void Return_GetString_10001001000_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("Ten Billion One Million One Thousand", word.GetString(10001001000));
+    }
+    [TestMethod]
+    public void Return_GetString_7897878979_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("Seven Billion Eight Hundred Ninety Seven Million Eight Hundred Seventy Eight Thousand Nine Hundred Seventy Nine", word.GetString(7897878979));
+    }
+    [TestMethod]
+    public void Return_GetString_1000000000000_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("One Hundred Trillion One", word.GetString(100000000000001));
+    }
+    [TestMethod]
+    public void Return_GetString_999999999999999_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("Nine Hundred Ninety Nine Trillion Nine Hundred Ninety Nine Billion Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine", word.GetString(999999999999999));
+    }
+    [TestMethod]
+    public void Return_GetString_0_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("Zero", word.GetString(0));
+    }
+    [TestMethod]
+    public void Return_GetString_Yeah_True()
+    {
+      Word word = new Word();
+      word.SetNumber("1999999999999999999999999999");
+      Assert.AreEqual("", word.GetString());
+    }
+    [TestMethod]
+    public void Return_GetString_Neg_1_True()
+    {
+      Word word = new Word();
+      word.SetNumber("-999999999999999999999999999");
+      Assert.AreEqual("", word.GetString());
     }
   }
 }
