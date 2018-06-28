@@ -101,6 +101,45 @@ namespace NumberWords.Models
         case BigInteger n when (n >=0 && n < GetPow(27)):
         returnValue = Seperator(24,number,"Septillion");
         break;
+        case BigInteger n when (n >=0 && n < GetPow(30)):
+        returnValue = Seperator(27,number,"Octillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(33)):
+        returnValue = Seperator(30,number,"Nonillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(36)):
+        returnValue = Seperator(33,number,"Decillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(39)):
+        returnValue = Seperator(36,number,"Undecillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(42)):
+        returnValue = Seperator(39,number,"Duodecillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(45)):
+        returnValue = Seperator(42,number,"Tredecillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(48)):
+        returnValue = Seperator(45,number,"Quattuordecillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(51)):
+        returnValue = Seperator(48,number,"Quindecillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(54)):
+        returnValue = Seperator(51,number,"Sexdecillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(57)):
+        returnValue = Seperator(54,number,"Septendecillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(60)):
+        returnValue = Seperator(57,number,"Octodecillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(63)):
+        returnValue = Seperator(60,number,"Novemdecillion");
+        break;
+        case BigInteger n when (n >=0 && n < GetPow(66)):
+        returnValue = Seperator(63,number,"Vigintillion");
+        break;
       }
       return returnValue;
     }
