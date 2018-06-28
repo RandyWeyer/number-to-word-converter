@@ -34,16 +34,42 @@ namespace NumberWords.Models
 
     public string Convert(int number)
     {
+      int offsetFirst, offsetSecond, offsetThird, offsetFourth;
+      string end = "";
       string returnValue = "Existence is Futile";
       switch(number)
       {
-        case int n when (n < 20 && n >=0):
+        case int n when (n >=0 && n < 20):
           returnValue = NumberDictionary.GetValue(number);
         break;
-        case int n when (n < 1000 && n >=0):
-          int offsetFirst = (int)(number/100);
-          int offsetThird = number - (offsetFirst*100);
-          returnValue = NumberDictionary.GetValue(offsetFirst)+" "+ NumberDictionary.GetValue(100)+"-"+NumberDictionary.GetValue(offsetThird);
+        case int n when (n >=0 && n < 1000):
+          offsetFirst = (int)(number/100);
+          offsetThird = number%100;
+          offsetFourth = 0;
+          if(offsetThird > 19)
+          {
+            //Need more logic if number is greater than 19
+            offsetFourth = offsetThird%10;
+            offsetThird -= offsetFourth;
+            end = " "+NumberDictionary.GetValue(offsetThird);
+            if(offsetFourth > 0)
+            {
+              end = end+" "+NumberDictionary.GetValue(offsetFourth);
+            }
+          }
+          else
+          {
+            end = " "+NumberDictionary.GetValue(offsetThird);
+          }
+          Console.WriteLine("Offset 3: "+offsetThird);
+          Console.WriteLine("Offset 4: "+offsetFourth);
+          returnValue = NumberDictionary.GetValue(offsetFirst)+" Hundred"+end;
+        break;
+        case int n when (n >=0 && n < 10000):
+          offsetFirst = (int)(number/1000);
+          offsetSecond = number%1000;
+          end = Convert(offsetSecond);
+          returnValue = end;
         break;
       }
       return returnValue;

@@ -43,13 +43,31 @@ namespace NumberWords.Tests
     public void Return_Convert_101_True()
     {
       Word word = new Word();
-      Assert.AreEqual("One Hundred-One",word.Convert(101));
+      Assert.AreEqual("One Hundred One",word.Convert(101));
     }
     [TestMethod]
     public void Return_Convert_919_True()
     {
       Word word = new Word();
-      Assert.AreEqual("Nine Hundred-Nineteen",word.Convert(919));
+      Assert.AreEqual("Nine Hundred Nineteen",word.Convert(919));
+    }
+    [TestMethod]
+    public void Return_Convert_920_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("Nine Hundred Twenty",word.Convert(920));
+    }
+    [TestMethod]
+    public void Return_Convert_921_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("Nine Hundred Twenty One",word.Convert(921));
+    }
+    [TestMethod]
+    public void Return_Convert_2921_True()
+    {
+      Word word = new Word();
+      Assert.AreEqual("Nine Hundred Twenty One",word.Convert(2921));
     }
   }
 }
